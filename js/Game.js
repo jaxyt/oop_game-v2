@@ -35,12 +35,34 @@
         }
     }
 
+    handleKeyboardInteraction(key){
+        const buttons = document.getElementsByClassName('key');
+        let targetKey = null;
+        for (let i = 0; i < buttons.length; i++) {
+            const button = buttons[i];
+            if (button.textContent === key) {
+                targetKey = button;
+                break;
+            }
+        }
+        
+        targetKey.disabled = true;
+        if (this.activePhrase.checkLetter(targetKey.innerText)) {
+            targetKey.className = 'key chosen';
+            this.activePhrase.showMatchedLetter(targetKey.innerText)
+            if (this.checkForWin()) {
+                this.gameOver('win');
+            }
+        } else {
+            targetKey.className = 'key wrong';
+            this.removeLife();
+        }
+    }
+
     removeLife(){
         const lives = document.getElementById('scoreboard').firstElementChild;
         lives.children[this.missed].firstElementChild.src = "images/lostHeart.png";
-        console.log(`removeLife before: ${this.missed}`);
         this.missed += 1;
-        console.log(`removeLife after: ${this.missed}`);
         if (this.missed === 5) {
             this.gameOver('lose');
         }
@@ -87,8 +109,6 @@
             messageSection.innerText = 'you ran out of lives';
             messageSection.className = 'lose';
         }
-        console.log(`gameOver before: ${this.missed}`);
         this.missed = 0;
-        console.log(`gameOver after: ${this.missed}`);
     }
  }

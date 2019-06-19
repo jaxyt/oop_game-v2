@@ -14,4 +14,10 @@ for (let i = 0; i < buttons.length; i++) {
     key.addEventListener('click', (e) => {
         game.handleInteraction(e.target);
     });
+
+    
 } 
+
+document.addEventListener('keyup', (e)=>{
+    game.handleKeyboardInteraction(e.key);
+});
