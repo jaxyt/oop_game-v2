@@ -10,6 +10,9 @@
         this.keysPressed = [];
     }
 
+    /**
+     * chooses a random phrase and displays its game boxes on screen
+     */
     startGame(){
         document.getElementById('overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
@@ -21,6 +24,10 @@
         return this.phrases[randPhrase];
     }
 
+    /**
+     * Handles mouseclick interactions and triggers game logic
+     * @param {button element} target 
+     */
     handleInteraction(target){
         this.keysPressed.push(target.innerText);
         target.disabled = true;
@@ -36,6 +43,11 @@
         }
     }
 
+
+    /**
+     * Handles keyboard input and triggers game logic
+     * @param {string} key 
+     */
     handleKeyboardInteraction(key){
         if (this.keysPressed.find(currentKey => currentKey === key)) {
             return
@@ -65,6 +77,9 @@
         }
     }
 
+    /**
+     * Changes a heart when a wrong answer is chosen
+     */
     removeLife(){
         const lives = document.getElementById('scoreboard').firstElementChild;
         lives.children[this.missed].firstElementChild.src = "images/lostHeart.png";
@@ -74,6 +89,10 @@
         }
     }
 
+
+    /**
+     * Scans game box elements to see if they have all been revealed
+     */
     checkForWin(){
         let phraseSet = document.getElementById('phrase').firstElementChild.children;
         let won = true;
@@ -90,6 +109,11 @@
         return won;
     }
 
+
+    /**
+     * Resets gamestate on a win or a loss and displays the game outcome on a banner
+     * @param {string} outcome 
+     */
     gameOver(outcome) {
         document.getElementById('overlay').style.display = '';
         let messageSection = document.getElementById('game-over-message');

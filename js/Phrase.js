@@ -7,6 +7,10 @@
         this.phrase = phrase.toLowerCase();
      }
 
+
+    /**
+     * Creates game boxes to display on screen and appends them to the game scene 
+     */
     addPhraseToDisplay(){
         const phraseBoard = document.getElementById('phrase').firstElementChild;
         for (let i = 0; i < this.phrase.length; i++) {
@@ -25,6 +29,11 @@
         }
     }
 
+
+    /**
+     * Attempts to find a given letter within the current phrase
+     * @param {string} letter 
+     */
     checkLetter(letter){
         let inPhrase = false;
         for (let i = 0; i < this.phrase.length; i++) {
@@ -37,6 +46,10 @@
         return inPhrase;
     }
 
+    /**
+     * Reveals all matching letters on the game scene display
+     * @param {string} letter 
+     */
     showMatchedLetter(letter){
         let phraseSet = document.getElementById('phrase').firstElementChild.children;
         for (let i = 0; i < phraseSet.length; i++) {
