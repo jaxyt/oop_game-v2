@@ -7,13 +7,13 @@
         this.missed = 0;
         this.phrases = phrases;
         this.activePhrase = null;
+        this.keysPressed = [];
     }
 
     startGame(){
         document.getElementById('overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
-        console.log(`start game: ${this.missed}`);
     }
 
     getRandomPhrase(){
@@ -22,6 +22,7 @@
     }
 
     handleInteraction(target){
+        this.keysPressed.push(target.innerText);
         target.disabled = true;
         if (this.activePhrase.checkLetter(target.innerText)) {
             target.className = 'key chosen';
@@ -36,6 +37,11 @@
     }
 
     handleKeyboardInteraction(key){
+        if (this.keysPressed.find(currentKey => currentKey === key)) {
+            return
+        } else {
+            this.keysPressed.push(key);            
+        }
         const buttons = document.getElementsByClassName('key');
         let targetKey = null;
         for (let i = 0; i < buttons.length; i++) {

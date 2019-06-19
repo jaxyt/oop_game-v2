@@ -23,6 +23,14 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+html { 
+  background: url(../images/jungle.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
   justify-content: space-evenly;
   flex-direction: column;
@@ -62,7 +70,8 @@ button {
 
 #btn__reset {
 	width: 200px;
-	margin: 0 auto;
+  margin: 0 auto;
+  background-color: #78CF82;
 }
 
 .main-container {
@@ -86,7 +95,8 @@ button {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  color: #f0f0f0;
+  background-color: black;
 }
 
 
@@ -131,14 +141,14 @@ button {
 }
 
 .chosen {
-  background: #3a3f58;
+  background: #42a2da;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
 }
 
 .wrong {
-  background: #f7a964;
+  background: #ec1515;
   color: #FFFFFF;
 }
 
