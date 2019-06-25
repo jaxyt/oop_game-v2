@@ -6,7 +6,7 @@
 /**
  * creates a new games state and initializes it on click
  */
-const game = new Game([new Phrase('phrase test one'), new Phrase('how are you'), new Phrase('born with his ass turned towards the moon'), new Phrase('hello'), new Phrase('good bye')]);
+const game = new Game([new Phrase('where there is a will there are five hundred relatives'), new Phrase('a clear conscience is usually the sign of a bad memory'), new Phrase('the gene pool could use a little chlorine'), new Phrase('death is hereditary'), new Phrase('constipated people dont give a crap')]);
 
 document.getElementById('btn__reset').addEventListener('click', (e) => {
     game.startGame(); 

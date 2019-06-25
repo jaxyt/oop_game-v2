@@ -140,5 +140,6 @@
             messageSection.className = 'lose';
         }
         this.missed = 0;
+        this.keysPressed = [];
     }
  }
